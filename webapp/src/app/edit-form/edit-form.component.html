@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Edit - Person</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-form-field class="full-width">
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="Ex. 0" value="" type="number" [(ngModel)]="record.pid">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Ex. John Titor" value="" type="text" [(ngModel)]="record.name">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="Ex. 0" value="" type="number" [(ngModel)]="record.age">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Ex. 12345678" value="" type="tel" [(ngModel)]="record.phone">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="record" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

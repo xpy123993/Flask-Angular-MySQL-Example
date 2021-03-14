@@ -1,0 +1,27 @@
+services:
+  mysql:
+    environment: {MYSQL_DATABASE: example, MYSQL_PASSWORD: gDUdnB8uncU-lTe3loajvj3CFq01GyV5,
+    MYSQL_RANDOM_ROOT_PASSWORD: '1', MYSQL_USER: example_user}
+    image: mysql:latest
+    volumes: ['/var/data/wordpress/db:/var/lib/mysql']
+    networks:
+      - backend
+  app:
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    environment:
+      - USE_IN_MEMORY_STORAGE=0
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=example
+      - MYSQL_USER=example_user
+      - MYSQL_PASSWORD=gDUdnB8uncU-lTe3loajvj3CFq01GyV5
+    networks:
+      - backend
+
+networks:
+  backend:
+
+
+version: '3.7'
